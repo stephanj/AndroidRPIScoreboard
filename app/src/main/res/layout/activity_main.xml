@@ -1,0 +1,249 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/fullscreen_content_controls"
+        style="@style/ImmersiveStickyTheme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:keepScreenOn="true"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <ImageButton
+            android:id="@+id/scoreA1"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_above="@+id/timeButton"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/plusonehome"
+            android:focusable="true"
+            android:src="@drawable/score_one_point_button_selector" />
+
+        <ImageButton
+            android:id="@+id/scoreA2"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/scoreA1"
+            android:layout_marginBottom="72dp"
+            android:clickable="true"
+            android:contentDescription="@string/plustwohome"
+            android:focusable="true"
+            android:src="@drawable/score_two_points_button_selector" />
+
+        <ImageButton
+            android:id="@+id/scoreA3"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/scoreA1"
+            android:clickable="true"
+            android:contentDescription="@string/plusthreehome"
+            android:focusable="true"
+            android:src="@drawable/score_three_points_button_selector" />
+
+        <ImageButton
+            android:id="@+id/foulA"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/homeTimeoutButton"
+            android:layout_alignTop="@+id/scoreA1"
+            android:clickable="true"
+            android:contentDescription="@string/foulhome"
+            android:focusable="true"
+            android:src="@drawable/foul_button_selector" />
+
+        <ImageButton
+            android:id="@+id/scoreB2"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignStart="@+id/scoreB1"
+            android:layout_alignTop="@+id/scoreA2"
+            android:clickable="true"
+            android:contentDescription="@string/plustwovisitors"
+            android:focusable="true"
+            android:src="@drawable/score_two_points_button_selector" />
+
+        <ImageButton
+            android:id="@+id/foulB"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/scoreA1"
+            android:layout_marginEnd="98dp"
+            android:clickable="true"
+            android:contentDescription="@string/foulvisitors"
+            android:focusable="true"
+            android:src="@drawable/foul_button_selector" />
+
+        <ImageButton
+            android:id="@+id/scoreB3"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignEnd="@+id/scoreB2"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:contentDescription="@string/plusthreevisitors"
+            android:focusable="true"
+            android:src="@drawable/score_three_points_button_selector" />
+
+        <ImageButton
+            android:id="@+id/scoreB1"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/scoreA1"
+            android:clickable="true"
+            android:contentDescription="@string/plusonevisitors"
+            android:focusable="true"
+            android:src="@drawable/score_one_point_button_selector" />
+
+        <ImageButton
+            android:id="@+id/timeButton"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="63dp"
+            android:clickable="true"
+            android:contentDescription="@string/clock"
+            android:focusable="true"
+            android:src="@drawable/clock" />
+
+        <ImageButton
+            android:id="@+id/quarterBtn"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignBottom="@+id/scoreB1"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:contentDescription="@string/quarter"
+            android:focusable="true"
+            android:src="@drawable/quarter_button_selector" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:checked="false"
+            android:maxLines="1"
+            android:textColor="@android:color/black"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/homeTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/home_team"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/visitorsTeam"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/visitors_team"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@id/clockUp"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@+id/visitorsTimeoutButton"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:contentDescription="@string/plustime"
+            android:focusable="true"
+            android:src="@drawable/time_up_button_selector" />
+
+        <ImageButton
+            android:id="@id/clockDown"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/foulA"
+            android:clickable="true"
+            android:contentDescription="@string/minustime"
+            android:focusable="true"
+            android:src="@drawable/time_down_button_selector" />
+
+        <ImageButton
+            android:id="@+id/homeTimeoutButton"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/scoreA2"
+            android:layout_toStartOf="@+id/attentionBtn"
+            android:clickable="true"
+            android:contentDescription="@string/hometimeout"
+            android:focusable="true"
+            android:src="@drawable/timeout_button_selector" />
+
+        <ImageButton
+            android:id="@+id/newGame"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/timeButton"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/new_game" />
+
+        <ImageButton
+            android:id="@+id/attentionBtn"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/timeButton"
+            android:clickable="true"
+            android:contentDescription="@string/buzzer"
+            android:focusable="true"
+            android:src="@drawable/attention" />
+
+        <ImageButton
+            android:id="@+id/visitorsTimeoutButton"
+            style="@android:style/MediaButton.Play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/foulB"
+            android:layout_alignTop="@+id/scoreA2"
+            android:clickable="true"
+            android:contentDescription="@string/visitorstimeout"
+            android:focusable="true"
+            android:src="@drawable/timeout_button_selector" />
+
+    </RelativeLayout>
+</FrameLayout>

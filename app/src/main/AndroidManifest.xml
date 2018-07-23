@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.janssen.scoreboard">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:fullBackupContent="true"
+        android:label="@string/app_name">
+
+        <activity
+            android:name=".CourtActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/games"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".CountDownActivity"
+            android:label="@string/games"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".NewGameActivity"
+            android:label="@string/games"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".ScoreActivity"
+            android:label="@string/games"
+            android:theme="@style/ImmersiveStickyTheme"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity android:name=".ServerControlActivity" />
+        <activity android:name=".ImmersiveStickyActivity" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/minuten"
+        android:layout_gravity="center"
+        android:layout_toEndOf="@+id/minuten"
+        android:onClick="startClock"
+        android:text="@string/start_aftelklok"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/minuten"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="47dp"
+        android:ems="10"
+        android:hint="@string/in_minuten"
+        android:inputType="number"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textStyle="normal" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="59dp"
+        android:background="@android:color/holo_orange_light"
+        android:minHeight="54dip"
+        android:paddingLeft="2dip"
+        android:paddingRight="2dip"
+        android:paddingTop="4dip">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:minWidth="100dip"
+            android:onClick="startNewGame"
+            android:text="@string/start_wedstrijd"
+            android:textColor="@android:color/black" />
+    </FrameLayout>
+
+</RelativeLayout>
