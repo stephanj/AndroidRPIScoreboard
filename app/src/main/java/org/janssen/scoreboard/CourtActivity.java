@@ -8,13 +8,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import org.janssen.scoreboard.model.Server;
+import org.janssen.scoreboard.model.types.RoomType;
+import org.janssen.scoreboard.task.OnTaskListener;
+import org.janssen.scoreboard.task.UserLoginTask;
 
 /**
  * Court activity.
  *
  * Created by stephan on 18/08/13.
  */
-public class CourtActivity extends ImmersiveStickyActivity {
+public class CourtActivity extends ImmersiveStickyActivity implements OnTaskListener {
 
     private int selectedCourt;
 
@@ -40,6 +43,7 @@ public class CourtActivity extends ImmersiveStickyActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 selectedCourt = pos;
                 Server.setCourt(selectedCourt);
+                Server.setIp(RoomType.getIpForCourt(selectedCourt));
             }
 
             @Override
@@ -49,8 +53,22 @@ public class CourtActivity extends ImmersiveStickyActivity {
     }
 
     public void startLogin(View view) {
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        new UserLoginTask(this, "test", "test").execute();
+    }
+
+    @Override
+    public void onTaskCompleted(String authToken) {
+
+        Server.setToken(authToken);
+
+        Intent intent = new Intent(getApplicationContext(), NewGameActivity.class);
+        intent.putExtra(Constants.AUTH_TOKEN, authToken);
         intent.putExtra(Constants.COURT, selectedCourt);
         startActivity(intent);
+    }
+
+    @Override
+    public void onTaskCancelled() {
+
     }
 }
