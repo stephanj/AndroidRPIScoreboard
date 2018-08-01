@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="3"
+    style="@style/AppTheme">
+
+    <Button
+        android:id="@+id/one"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/two"
+        android:layout_alignTop="@+id/three"
+        android:layout_gravity="fill"
+        android:layout_columnWeight="1"
+        android:text="@string/one" />
+
+    <Button
+        android:id="@+id/two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:layout_columnWeight="1"
+        android:text="@string/two" />
+
+    <Button
+        android:id="@+id/three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:layout_columnWeight="1"
+        android:text="@string/three" />
+
+
+    <Button
+        android:id="@+id/four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/one"
+        android:layout_gravity="fill"
+        android:layout_columnWeight="1"
+        android:text="@string/four" />
+
+    <Button
+        android:id="@+id/five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:layout_columnWeight="1"
+        android:layout_alignStart="@+id/one"
+        android:layout_below="@+id/two"
+        android:text="@string/five" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/two"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="fill"
+        android:layout_columnWeight="1"
+        android:text="@string/cancel" />
+
+</GridLayout>

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -426,23 +427,7 @@ public class ScoreActivity extends ImmersiveStickyActivity {
      * @param teamID    the team identifier
      */
     private void showFoulsDialog(View v, final int teamID) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-
-        builder.setTitle(getString(R.string.personal_fouls))
-               .setSingleChoiceItems(personalFouls, 0, new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialogInterface, int item) {
-                       new FoulTask(authToken, teamID, item + 1, isPositive).execute();
-                       dialogInterface.dismiss();
-                   }
-               })
-
-               .setNegativeButton(getString(R.string.cancel_txt), new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int whichButton) {
-                       dialog.dismiss();
-                   }
-               })
-               .create()
-               .show();
+        new FoulDialog(authToken, teamID, isPositive, this).show();
     }
 
     /**
