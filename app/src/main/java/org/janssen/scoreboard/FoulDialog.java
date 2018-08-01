@@ -11,8 +11,6 @@ import org.janssen.scoreboard.task.FoulTask;
 
 public class FoulDialog extends Dialog implements android.view.View.OnClickListener {
 
-    private Button one, two, three, four, five, cancel;
-
     private String authToken;
     private int teamId;
     private boolean isPositive;
@@ -33,18 +31,19 @@ public class FoulDialog extends Dialog implements android.view.View.OnClickListe
         // requestWindowFeature(Window.FEATURE_NO_TITLE);
         setTitle(R.string.personal_fouls);
         setContentView(R.layout.foul_dialog);
-        one = findViewById(R.id.one);
-        two = findViewById(R.id.two);
-        three = findViewById(R.id.three);
-        four = findViewById(R.id.four);
-        five = findViewById(R.id.five);
-        cancel = findViewById(R.id.cancel);
+        Button one = findViewById(R.id.one);
+        Button two = findViewById(R.id.two);
+        Button three = findViewById(R.id.three);
+        Button four = findViewById(R.id.four);
+        Button five = findViewById(R.id.five);
+        Button cancel = findViewById(R.id.cancel);
 
         one.setOnClickListener(this);
         two.setOnClickListener(this);
         three.setOnClickListener(this);
         four.setOnClickListener(this);
         five.setOnClickListener(this);
+        cancel.setOnClickListener(this);
     }
 
     @Override
@@ -66,10 +65,8 @@ public class FoulDialog extends Dialog implements android.view.View.OnClickListe
                 new FoulTask(authToken, teamId, 5, isPositive).execute();
                 break;
             case R.id.cancel:
-                dismiss();
                 break;
         }
         dismiss();
     }
-
 }
