@@ -154,10 +154,9 @@ public class NewGameActivity extends ImmersiveStickyActivity implements OnTaskLi
         mirroring = isMirrored;
 
         // Show a progress dialog, and kick off a background task to perform the new game attempt
-        progressBar.setVisibility(View.VISIBLE);
+        showProgressBar();
 
-        NewGameTask newGameTask = new NewGameTask(this, teamA, teamB, gameType, ageCategory, selectedCourt, mirroring, authToken);
-        newGameTask.execute();
+        new NewGameTask(this, teamA, teamB, gameType, ageCategory, selectedCourt, mirroring, authToken).execute();
     }
 
     /**
@@ -165,22 +164,31 @@ public class NewGameActivity extends ImmersiveStickyActivity implements OnTaskLi
      */
     @Override
     public void onTaskCompleted(String result) {
-        progressBar.setVisibility(View.INVISIBLE);
+        hideProgressBar();
 
-        // Show count down
-        Intent intent = new Intent(getApplicationContext(), CountDownActivity.class);
-        intent.putExtra(MIRRORED, mirroring);
-        intent.putExtra(GAME, result);
-        intent.putExtra(AUTH_TOKEN, authToken);
-        intent.putExtra(COURT, selectedCourt);
-        startActivity(intent);
+        if (result.contains("connect timed out")) {
+            Toast.makeText(getApplicationContext(), "Geen connectie met scorebord", Toast.LENGTH_LONG).show();
+        } else {
+            // Show count down
+            Intent intent = new Intent(getApplicationContext(), CountDownActivity.class);
+            intent.putExtra(MIRRORED, mirroring);
+            intent.putExtra(GAME, result);
+            intent.putExtra(AUTH_TOKEN, authToken);
+            intent.putExtra(COURT, selectedCourt);
+            startActivity(intent);
+        }
     }
 
     @Override
     public void onTaskCancelled() {
-        Log.i(TAG, "onTaskCancelled()");
+        hideProgressBar();
+    }
 
-        // Hide the progress dialog
+    private void hideProgressBar() {
         progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    private void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
     }
 }

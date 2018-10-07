@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import org.janssen.scoreboard.model.Server;
 import org.janssen.scoreboard.model.types.RoomType;
@@ -59,16 +60,20 @@ public class CourtActivity extends ImmersiveStickyActivity implements OnTaskList
     @Override
     public void onTaskCompleted(String authToken) {
 
-        Server.setToken(authToken);
+        if (authToken.contains("connect timed out")) {
+            Toast.makeText(getApplicationContext(), "Geen connectie met scorebord", Toast.LENGTH_LONG).show();
+        } else {
+            Server.setToken(authToken);
 
-        Intent intent = new Intent(getApplicationContext(), NewGameActivity.class);
-        intent.putExtra(Constants.AUTH_TOKEN, authToken);
-        intent.putExtra(Constants.COURT, selectedCourt);
-        startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), NewGameActivity.class);
+            intent.putExtra(Constants.AUTH_TOKEN, authToken);
+            intent.putExtra(Constants.COURT, selectedCourt);
+            startActivity(intent);
+        }
     }
 
     @Override
     public void onTaskCancelled() {
-
+        System.out.println("Canceled");
     }
 }

@@ -61,11 +61,15 @@ public class CountDownActivity extends ImmersiveStickyActivity implements OnTask
     }
 
     @Override
-    public void onTaskCompleted(String value) {
-        Intent intent = new Intent(getApplicationContext(), ScoreActivity.class);
-        intent.putExtra(GAME, game);
-        intent.putExtra(AUTH_TOKEN, authToken);
-        intent.putExtra(COURT, selectedCourt);
-        startActivity(intent);
+    public void onTaskCompleted(String result) {
+        if (result.contains("connect timed out")) {
+            Toast.makeText(getApplicationContext(), "Geen connectie met scorebord", Toast.LENGTH_LONG).show();
+        } else {
+            Intent intent = new Intent(getApplicationContext(), ScoreActivity.class);
+            intent.putExtra(GAME, game);
+            intent.putExtra(AUTH_TOKEN, authToken);
+            intent.putExtra(COURT, selectedCourt);
+            startActivity(intent);
+        }
     }
 }

@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<item name="username" type="id">username</item><item name="password" type="id">password</item><item name="clockUp" type="id">123</item><item name="clockDown" type="id">456</item></resources>
+    <item name="username" type="id"/>
+    <item name="password" type="id"/>
+    <item name="clockUp" type="id"/>
+    <item name="clockDown" type="id"/>
+</resources>

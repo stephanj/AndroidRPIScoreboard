@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.Buffer;
 import java.nio.charset.Charset;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -32,8 +33,18 @@ final public class NetworkUtilities {
     /**
      * Configures the httpClient to connect to the URL provided.
      */
+    private static OkHttpClient getHttpClient(long timeout) {
+
+        return new OkHttpClient
+                .Builder()
+                .connectTimeout(timeout, TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .build();
+    }
+
     private static OkHttpClient getHttpClient() {
-        return new OkHttpClient();
+        return getHttpClient(5);
     }
 
     /**
@@ -82,7 +93,7 @@ final public class NetworkUtilities {
                 .post(emptyBody)
                 .build();
 
-        try (Response response = getHttpClient().newCall(request).execute()) {
+        try (Response response = getHttpClient(30).newCall(request).execute()) {
             return getResponseMessage(response);
         }
     }
