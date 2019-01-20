@@ -11,8 +11,8 @@
         android:layout_height="216dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="17dp"
         android:contentDescription="@string/courtplan"
         android:src="@drawable/court_layout" />
 
@@ -88,6 +88,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="121dp"
-        android:text="@string/versie_6_sep_2017"
+        android:text="@string/versie_nummer"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 </RelativeLayout>
