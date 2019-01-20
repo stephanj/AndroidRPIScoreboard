@@ -23,7 +23,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_above="@+id/timeButton"
-            android:layout_marginBottom="21dp"
+            android:layout_alignStart="@+id/homeTeam"
+            android:layout_marginBottom="38dp"
             android:contentDescription="@string/plusonehome"
             android:focusable="true"
             android:src="@drawable/score_one_point_button_selector" />
@@ -36,7 +37,7 @@
             android:layout_alignStart="@+id/scoreA1"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="3dp"
-            android:layout_marginBottom="128dp"
+            android:layout_marginBottom="137dp"
             android:clickable="true"
             android:contentDescription="@string/plustwohome"
             android:focusable="true"
