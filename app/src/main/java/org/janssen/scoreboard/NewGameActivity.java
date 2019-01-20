@@ -29,8 +29,8 @@ import static org.janssen.scoreboard.Constants.MIRRORED;
  */
 public class NewGameActivity extends ImmersiveStickyActivity implements OnTaskListener {
 
-    public static final int COURT_B = 1;
-    public static final int SENIOREN = 0;
+    private static final int COURT_B = 1;
+    private static final int SENIOREN = 0;
 
     private String authToken;
 
@@ -163,10 +163,11 @@ public class NewGameActivity extends ImmersiveStickyActivity implements OnTaskLi
      * Called when the new game creation process completes.
      */
     @Override
-    public void onTaskCompleted(String result) {
+    public void onTaskCompleted(final String result) {
         hideProgressBar();
 
-        if (result.contains("connect timed out")) {
+        if (result == null ||
+            result.contains("connect timed out")) {
             Toast.makeText(getApplicationContext(), "Geen connectie met scorebord", Toast.LENGTH_LONG).show();
         } else {
             // Show count down

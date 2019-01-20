@@ -61,8 +61,9 @@ public class CountDownActivity extends ImmersiveStickyActivity implements OnTask
     }
 
     @Override
-    public void onTaskCompleted(String result) {
-        if (result.contains("connect timed out")) {
+    public void onTaskCompleted(final String result) {
+        if (result == null ||
+            result.contains("connect timed out")) {
             Toast.makeText(getApplicationContext(), "Geen connectie met scorebord", Toast.LENGTH_LONG).show();
         } else {
             Intent intent = new Intent(getApplicationContext(), ScoreActivity.class);

@@ -53,6 +53,6 @@ public class StartGameTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(final String games) {
 
-        listener.onTaskCompleted(null);
+        listener.onTaskCompleted(games);
     }
 }
