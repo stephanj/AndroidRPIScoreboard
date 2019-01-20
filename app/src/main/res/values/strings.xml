@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ScoreBoardTEST</string>
+    <string name="app_name">ScoreBoard 2019</string>
     <string name="games">ScoreBoard</string>
     <string name="login">Login</string>
 
