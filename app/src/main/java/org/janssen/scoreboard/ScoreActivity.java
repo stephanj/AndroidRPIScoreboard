@@ -112,8 +112,9 @@ public class ScoreActivity extends ImmersiveStickyActivity {
                     }
                 }
 
-            } catch (JSONException e) {
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            } catch (JSONException ex) {
+                Log.e("ScoreActivity", ex.getMessage());
+                Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
             }
         } else {
             Toast.makeText(getApplicationContext(), "No Game info available!", Toast.LENGTH_LONG).show();
@@ -289,7 +290,7 @@ public class ScoreActivity extends ImmersiveStickyActivity {
         scoreA3.setOnClickListener(scoreAListener);
     }
 
-    private void processScoreA(int buttonId) {
+    private void processScoreA(final int buttonId) {
         int points = 0;
 
         switch (buttonId) {
@@ -318,7 +319,7 @@ public class ScoreActivity extends ImmersiveStickyActivity {
         scoreB3.setOnClickListener(scoreBListener);
     }
 
-    private void processScoreB(int buttonId) {
+    private void processScoreB(final int buttonId) {
         int points = 0;
 
         switch (buttonId) {
@@ -372,6 +373,7 @@ public class ScoreActivity extends ImmersiveStickyActivity {
             toast.show();
         } catch (InterruptedException | ExecutionException ex) {
             Log.e("ScoreActivity", ex.getMessage());
+            Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -405,11 +407,12 @@ public class ScoreActivity extends ImmersiveStickyActivity {
             toast.show();
         } catch (InterruptedException | ExecutionException ex) {
             Log.e("ScoreActivity", ex.getMessage());
+            Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    public boolean onPrepareOptionsMenu(final Menu menu) {
         if (isClockRunning) {
             menu.getItem(0).setEnabled(false);
         }
@@ -426,11 +429,11 @@ public class ScoreActivity extends ImmersiveStickyActivity {
     }
 
     /**
-     * Shows the personal fouls dialog.
+     * Show "Do you want to start a new game" dialog.
      *
      * @param v         the view
      */
-    private void showNewGameDialog(View v) {
+    private void showNewGameDialog(final View v) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
 
         builder.setTitle(getString(R.string.new_game_question))
