@@ -1,6 +1,8 @@
 package org.janssen.scoreboard.task;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
 import org.janssen.scoreboard.comms.NetworkUtilities;
 
 /**
@@ -28,6 +30,7 @@ public class UserLoginTask extends AsyncTask<Void, Void, String> {
         try {
             return NetworkUtilities.authenticate(username, password);
         } catch (Exception ex) {
+            Log.e("UserLoginTask", ex.getMessage());
             return ex.toString();
         }
     }

@@ -1,6 +1,7 @@
 package org.janssen.scoreboard.task;
 
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.TextView;
 
 import org.janssen.scoreboard.comms.NetworkUtilities;
@@ -20,9 +21,10 @@ public class ScoreTask extends AsyncTask<Void, Void, String> {
     private String token;
     private int teamId;
     private int points;
-    private WeakReference<TextView> textView;
     private String teamName;
     private boolean isPositive;
+
+    private WeakReference<TextView> textView;
 
     public ScoreTask(final String token,
               final TextView textView,
@@ -31,7 +33,7 @@ public class ScoreTask extends AsyncTask<Void, Void, String> {
               final int points,
               final boolean isPositive) {
         this.token = token;
-        this.textView = new WeakReference<TextView>(textView);
+        this.textView = new WeakReference<>(textView);
         this.teamName = teamName;
         this.teamId = teamId;
         this.points = points;
@@ -43,8 +45,10 @@ public class ScoreTask extends AsyncTask<Void, Void, String> {
         try {
             return NetworkUtilities.updateScore(token, isPositive, teamId, points);
         } catch (IOException ex) {
+            Log.e("ScoreTask", ex.getMessage());
             return NETWORK_PROBLEEM_PROBEER_OPNIEUW;
         } catch (Exception ex) {
+            Log.e("ScoreTask", ex.getMessage());
             return ERROR_PROBEER_OPNIEUW + ex.toString();
         }
     }

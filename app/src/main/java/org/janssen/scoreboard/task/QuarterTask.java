@@ -1,10 +1,12 @@
 package org.janssen.scoreboard.task;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
 import org.janssen.scoreboard.comms.NetworkUtilities;
 
 /**
- * Represents an asynchronous task used to set the quarters
+ * Represents an asynchronous task used to set the quarters.
  */
 public class QuarterTask extends AsyncTask<Void, Void, String> {
 
@@ -12,6 +14,13 @@ public class QuarterTask extends AsyncTask<Void, Void, String> {
     private String authToken;
     private boolean isPositive;
 
+    /**
+     * QuarterTask constructor.
+     *
+     * @param gameId        the game identifier
+     * @param authToken     authentication token
+     * @param isPositive    is positive?
+     */
     public QuarterTask(final int gameId,
                        final String authToken,
                        final boolean isPositive) {
@@ -25,7 +34,8 @@ public class QuarterTask extends AsyncTask<Void, Void, String> {
         try {
             return NetworkUtilities.updateQuarters(authToken, isPositive, gameId);
         } catch (Exception ex) {
-            return ex.toString();
+            Log.e("QuarterTask", ex.getMessage());
+            return ex.getMessage();
         }
     }
 }

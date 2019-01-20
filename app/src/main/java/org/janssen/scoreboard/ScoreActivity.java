@@ -5,7 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -19,7 +19,6 @@ import org.janssen.scoreboard.model.Server;
 import org.janssen.scoreboard.model.types.ClockAction;
 import org.janssen.scoreboard.task.AttentionTask;
 import org.janssen.scoreboard.task.ClockTask;
-import org.janssen.scoreboard.task.FoulTask;
 import org.janssen.scoreboard.task.QuarterTask;
 import org.janssen.scoreboard.task.ScoreTask;
 import org.janssen.scoreboard.task.TimeoutTask;
@@ -39,7 +38,7 @@ public class ScoreActivity extends ImmersiveStickyActivity {
 
     public static final String NETWORK_PROBLEEM_PROBEER_OPNIEUW = "Communicatie probleem, probeer opnieuw!";
     public static final String OPNIEUW = "opnieuw";
-    public static final String OK = "OK";
+    private static final String OK = "OK";
 
     private ImageButton scoreA1;
     private ImageButton scoreA2;
@@ -72,8 +71,6 @@ public class ScoreActivity extends ImmersiveStickyActivity {
     private int gameId;
     private int teamA;
     private int teamB;
-
-    final CharSequence[] personalFouls = {"1", "2", "3", "4", "5"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,7 +113,6 @@ public class ScoreActivity extends ImmersiveStickyActivity {
                 }
 
             } catch (JSONException e) {
-                e.printStackTrace();
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             }
         } else {
@@ -135,7 +131,7 @@ public class ScoreActivity extends ImmersiveStickyActivity {
         // Ignore the back button
     }
 
-    public void addButtonListeners() {
+    private void addButtonListeners() {
 
         ImageButton newGameBtn = findViewById(R.id.newGame);
         newGameBtn.setOnClickListener(new View.OnClickListener() {
@@ -154,7 +150,7 @@ public class ScoreActivity extends ImmersiveStickyActivity {
         foulA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showFoulsDialog(view, teamA);
+                showFoulsDialog(teamA);
             }
         });
 
@@ -162,7 +158,7 @@ public class ScoreActivity extends ImmersiveStickyActivity {
         foulB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showFoulsDialog(view, teamB);
+                showFoulsDialog(teamB);
             }
         });
 
@@ -350,8 +346,8 @@ public class ScoreActivity extends ImmersiveStickyActivity {
             }
             toast.setGravity(Gravity.BOTTOM, 0, -200);
             toast.show();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
+        } catch (InterruptedException | ExecutionException ex) {
+            Log.e("ScoreActivity", ex.getMessage());
         }
     }
 
@@ -374,8 +370,8 @@ public class ScoreActivity extends ImmersiveStickyActivity {
             }
             toast.setGravity(Gravity.BOTTOM, 0, -300);
             toast.show();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
+        } catch (InterruptedException | ExecutionException ex) {
+            Log.e("ScoreActivity", ex.getMessage());
         }
     }
 
@@ -407,8 +403,8 @@ public class ScoreActivity extends ImmersiveStickyActivity {
             Toast toast= Toast.makeText(getApplicationContext(), result, result.equals(OK) ? Toast.LENGTH_SHORT : Toast.LENGTH_LONG);
             toast.setGravity(Gravity.BOTTOM, 0, -200);
             toast.show();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
+        } catch (InterruptedException | ExecutionException ex) {
+            Log.e("ScoreActivity", ex.getMessage());
         }
     }
 
@@ -423,10 +419,9 @@ public class ScoreActivity extends ImmersiveStickyActivity {
     /**
      * Shows the personal fouls dialog.
      *
-     * @param v         the view
      * @param teamID    the team identifier
      */
-    private void showFoulsDialog(View v, final int teamID) {
+    private void showFoulsDialog(final int teamID) {
         new FoulDialog(authToken, teamID, isPositive, this).show();
     }
 

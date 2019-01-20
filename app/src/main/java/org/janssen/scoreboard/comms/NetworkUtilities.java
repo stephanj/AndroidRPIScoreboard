@@ -7,7 +7,6 @@ import org.janssen.scoreboard.model.types.ClockAction;
 
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.nio.Buffer;
 import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 
@@ -204,11 +203,12 @@ final public class NetworkUtilities {
     }
 
     /**
+     * Increment the timeout counter.
      *
-     * @param token
-     * @param teamId
-     * @return
-     * @throws IOException
+     * @param token auth token
+     * @param teamId the team identifier
+     * @return http response
+     * @throws IOException something went wrong with comms
      */
     public static String incrementTimeout(final String token,
                                           final int teamId) throws IOException {
@@ -216,19 +216,20 @@ final public class NetworkUtilities {
     }
 
     /**
-     *
-     * @param token
-     * @return
-     * @throws IOException
+     * Call for attention via buzzer.
+     * @param token auth token
+     * @return http response
+     * @throws IOException something went wrong with comms
      */
     public static String attention(final String token) throws IOException {
         return executeGet(String.format(RestURI.ATTENTION.getValue(), Server.getIp(), token));
     }
 
     /**
+     * Ping server.
      *
-     * @return
-     * @throws IOException
+     * @return http response
+     * @throws IOException something went wrong with comms
      */
     public static String pingServer() throws IOException {
         return executeGet(String.format(RestURI.PING.getValue(), Server.getIp()));

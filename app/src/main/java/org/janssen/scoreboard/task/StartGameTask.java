@@ -1,6 +1,7 @@
 package org.janssen.scoreboard.task;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.janssen.scoreboard.Constants;
 import org.janssen.scoreboard.comms.NetworkUtilities;
@@ -10,7 +11,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 /**
- * An asynchronous start game task
+ * An asynchronous start game task.
  */
 public class StartGameTask extends AsyncTask<Void, Void, String> {
 
@@ -38,13 +39,13 @@ public class StartGameTask extends AsyncTask<Void, Void, String> {
             JSONObject game = (JSONObject)gameArray.get(Constants.GAME);
             gameId = game.getInt(Constants.ID);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e("StartGameTask", e.getMessage());
         }
 
         try {
             NetworkUtilities.startGame(authToken, gameId, mirrored);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e("StartGameTask", e.getMessage());
         }
 
         return "";
@@ -52,7 +53,6 @@ public class StartGameTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(final String games) {
-
         listener.onTaskCompleted(games);
     }
 }

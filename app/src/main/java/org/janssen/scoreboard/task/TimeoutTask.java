@@ -29,8 +29,7 @@ public class TimeoutTask extends AsyncTask<Void, Void, String> {
         try {
             return NetworkUtilities.incrementTimeout(authToken, teamId);
         } catch (Exception ex) {
-            Log.e(TAG, "TimeoutTask.doInBackground: failed to set score");
-            Log.i(TAG, ex.toString());
+            Log.e("TimeoutTask", ex.getMessage());
             return null;
         }
     }

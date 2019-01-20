@@ -12,8 +12,6 @@ import java.io.IOException;
  */
 public class NewGameTask extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "NewGameTask";
-
     private OnTaskListener listener;
     private String teamA;
     private String teamB;
@@ -48,8 +46,7 @@ public class NewGameTask extends AsyncTask<Void, Void, String> {
         try {
             return NetworkUtilities.newGame(authToken, teamA, teamB, gameType, ageCategory, selectedCourt, mirroring);
         } catch (IOException ex) {
-            Log.e(TAG, "New game task");
-            Log.i(TAG, ex.toString());
+            Log.e("NewGameTask", ex.getMessage());
         }
         return null;
     }

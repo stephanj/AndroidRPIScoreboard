@@ -36,8 +36,7 @@ public class FoulTask extends AsyncTask<Void, Void, String> {
         try {
             return NetworkUtilities.updateFouls(token, isPositive, teamId, totalFouls);
         } catch (Exception ex) {
-            Log.e(TAG, "FoulTask.doInBackground: failed to set fouls");
-            Log.i(TAG, ex.toString());
+            Log.e("FoulTask", ex.getMessage());
             return null;
         }
     }
