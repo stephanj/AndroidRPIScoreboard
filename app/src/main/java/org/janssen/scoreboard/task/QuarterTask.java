@@ -10,9 +10,9 @@ import org.janssen.scoreboard.comms.NetworkUtilities;
  */
 public class QuarterTask extends AsyncTask<Void, Void, String> {
 
-    private int gameId;
-    private String authToken;
-    private boolean isPositive;
+    private final int gameId;
+    private final String authToken;
+    private final boolean isPositive;
 
     /**
      * QuarterTask constructor.

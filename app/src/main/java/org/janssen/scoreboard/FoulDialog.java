@@ -4,16 +4,15 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 
 import org.janssen.scoreboard.task.FoulTask;
 
 public class FoulDialog extends Dialog implements android.view.View.OnClickListener {
 
-    private String authToken;
-    private int teamId;
-    private boolean isPositive;
+    private final String authToken;
+    private final int teamId;
+    private final boolean isPositive;
 
     FoulDialog(final String authToken,
                final int teamId,
@@ -48,25 +47,21 @@ public class FoulDialog extends Dialog implements android.view.View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.one:
-                new FoulTask(authToken, teamId, 1, isPositive).execute();
-                break;
-            case R.id.two:
-                new FoulTask(authToken, teamId, 2, isPositive).execute();
-                break;
-            case R.id.three:
-                new FoulTask(authToken, teamId, 3, isPositive).execute();
-                break;
-            case R.id.four:
-                new FoulTask(authToken, teamId, 4, isPositive).execute();
-                break;
-            case R.id.five:
-                new FoulTask(authToken, teamId, 5, isPositive).execute();
-                break;
-            case R.id.cancel:
-                break;
+        // TODO
+        System.out.println("FoulDialog.onClick " + v.getId());
+        int id = v.getId();
+        if (id == R.id.one) {
+            new FoulTask(authToken, teamId, 1, isPositive).execute();
+        } else if (id == R.id.two) {
+            new FoulTask(authToken, teamId, 2, isPositive).execute();
+        } else if (id == R.id.three) {
+            new FoulTask(authToken, teamId, 3, isPositive).execute();
+        } else if (id == R.id.four) {
+            new FoulTask(authToken, teamId, 4, isPositive).execute();
+        } else if (id == R.id.five) {
+            new FoulTask(authToken, teamId, 5, isPositive).execute();
         }
+
         dismiss();
     }
 }

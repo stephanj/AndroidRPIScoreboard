@@ -24,7 +24,8 @@ final public class NetworkUtilities {
 
     private static final String OK = "OK";
 
-    private static RequestBody emptyBody = RequestBody.create(null, new byte[0]);
+    private final static RequestBody emptyBody =
+        RequestBody.create(null, new byte[0]);
 
     private NetworkUtilities() {
     }

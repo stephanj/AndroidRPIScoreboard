@@ -11,9 +11,9 @@ import org.janssen.scoreboard.comms.NetworkUtilities;
  */
 public class UserLoginTask extends AsyncTask<Void, Void, String> {
 
-    private OnTaskListener listener;
-    private String username;
-    private String password;
+    private final OnTaskListener listener;
+    private final String username;
+    private final String password;
 
     public UserLoginTask(final OnTaskListener listener,
                          final String username,

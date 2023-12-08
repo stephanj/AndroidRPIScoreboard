@@ -16,7 +16,7 @@ public class AttentionTask extends AsyncTask<Void, Void, String> {
      */
     private static final String TAG = "AttentionTask";
 
-    private String authToken;
+    private final String authToken;
 
     public AttentionTask(final String authToken) {
         this.authToken = authToken;

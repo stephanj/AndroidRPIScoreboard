@@ -15,7 +15,6 @@ import org.janssen.scoreboard.task.UserLoginTask;
 
 /**
  * Court activity.
- *
  * Created by stephan on 18/08/13.
  */
 public class CourtActivity extends ImmersiveStickyActivity implements OnTaskListener {
@@ -60,8 +59,9 @@ public class CourtActivity extends ImmersiveStickyActivity implements OnTaskList
     @Override
     public void onTaskCompleted(String authToken) {
 
-        if (authToken.contains("connect timed out")) {
-            Toast.makeText(getApplicationContext(), "Geen connectie met scorebord", Toast.LENGTH_LONG).show();
+        if (authToken.contains("connect timed out") ||
+            authToken.contains("Exception")) {
+            Toast.makeText(getApplicationContext(), "Geen connectie met scorebord : " + authToken, Toast.LENGTH_LONG).show();
         } else {
             Server.setToken(authToken);
 

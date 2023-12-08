@@ -16,10 +16,10 @@ public class FoulTask extends AsyncTask<Void, Void, String> {
      */
     private static final String TAG = "FoulTask";
 
-    private String token;
-    private int teamId;
-    private int totalFouls;
-    private boolean isPositive;
+    private final String token;
+    private final int teamId;
+    private final int totalFouls;
+    private final boolean isPositive;
 
     public FoulTask(final String token,
                     final int teamId,

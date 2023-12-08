@@ -15,10 +15,10 @@ import java.io.IOException;
  */
 public class StartGameTask extends AsyncTask<Void, Void, String> {
 
-    private OnTaskCompleted listener;
-    private String authToken;
-    private String game;
-    private boolean mirrored;
+    private final OnTaskCompleted listener;
+    private final String authToken;
+    private final String game;
+    private final boolean mirrored;
 
     public StartGameTask(final OnTaskCompleted listener,
                          final String authToken,

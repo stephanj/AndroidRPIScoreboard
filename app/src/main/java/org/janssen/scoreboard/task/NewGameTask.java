@@ -12,14 +12,14 @@ import java.io.IOException;
  */
 public class NewGameTask extends AsyncTask<Void, Void, String> {
 
-    private OnTaskListener listener;
-    private String teamA;
-    private String teamB;
-    private int gameType;
-    private int ageCategory;
-    private int selectedCourt;
-    private boolean mirroring;
-    private String authToken;
+    private final OnTaskListener listener;
+    private final String teamA;
+    private final String teamB;
+    private final int gameType;
+    private final int ageCategory;
+    private final int selectedCourt;
+    private final boolean mirroring;
+    private final String authToken;
 
     public NewGameTask(
                 final OnTaskListener listener,

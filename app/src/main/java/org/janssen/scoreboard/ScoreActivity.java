@@ -293,10 +293,14 @@ public class ScoreActivity extends ImmersiveStickyActivity {
     private void processScoreA(final int buttonId) {
         int points = 0;
 
-        switch (buttonId) {
-            case R.id.scoreA1:  points = 1; break;
-            case R.id.scoreA2:  points = 2; break;
-            case R.id.scoreA3:  points = 3; break;
+        // TODO
+        System.out.println("Score A: " + buttonId);
+        if (buttonId == R.id.scoreA1) {
+            points = 1;
+        } else if (buttonId == R.id.scoreA2) {
+            points = 2;
+        } else if (buttonId == R.id.scoreA3) {
+            points = 3;
         }
 
         executeScoreTask(authToken, homeTeam, teamAName, teamA, points);
@@ -322,10 +326,13 @@ public class ScoreActivity extends ImmersiveStickyActivity {
     private void processScoreB(final int buttonId) {
         int points = 0;
 
-        switch (buttonId) {
-            case R.id.scoreB1:  points = 1; break;
-            case R.id.scoreB2:  points = 2; break;
-            case R.id.scoreB3:  points = 3; break;
+        System.out.println("processScoreB: " + buttonId);
+        if (buttonId == R.id.scoreB1) {
+            points = 1;
+        } else if (buttonId == R.id.scoreB2) {
+            points = 2;
+        } else if (buttonId == R.id.scoreB3) {
+            points = 3;
         }
 
         executeScoreTask(authToken, visitorsTeam, teamBName, teamB, points);

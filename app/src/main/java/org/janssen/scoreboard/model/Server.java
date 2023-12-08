@@ -14,7 +14,7 @@ public class Server {
 
     private static int gameId;
 
-    private static String[] courts = { "A", "B", "C"};
+    private final static String[] courts = { "A", "B", "C"};
 
     public static String getIp() {
         return ip;

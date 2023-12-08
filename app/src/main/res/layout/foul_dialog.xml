@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:columnCount="2"
@@ -11,25 +12,28 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/two"
         android:layout_alignTop="@+id/three"
-        android:layout_gravity="fill"
         android:layout_columnWeight="1"
-        android:text="@string/one" />
+        android:layout_gravity="fill"
+        android:text="@string/one"
+        tools:text="1" />
 
     <Button
         android:id="@+id/two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="fill"
         android:layout_columnWeight="1"
-        android:text="@string/two" />
+        android:layout_gravity="fill"
+        android:text="@string/two"
+        tools:text="2" />
 
     <Button
         android:id="@+id/three"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="fill"
         android:layout_columnWeight="1"
-        android:text="@string/three" />
+        android:layout_gravity="fill"
+        android:text="@string/three"
+        tools:text="3" />
 
 
     <Button
@@ -37,19 +41,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/one"
-        android:layout_gravity="fill"
         android:layout_columnWeight="1"
-        android:text="@string/four" />
+        android:layout_gravity="fill"
+        android:text="@string/four"
+        tools:text="4" />
 
     <Button
         android:id="@+id/five"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
         android:layout_alignStart="@+id/one"
         android:layout_below="@+id/two"
-        android:text="@string/five" />
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:text="@string/five"
+        tools:text="5" />
 
     <Button
         android:id="@+id/cancel"

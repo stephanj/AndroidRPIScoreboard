@@ -18,13 +18,13 @@ import static org.janssen.scoreboard.task.ClockTask.ERROR_PROBEER_OPNIEUW;
  */
 public class ScoreTask extends AsyncTask<Void, Void, String> {
 
-    private String token;
-    private int teamId;
-    private int points;
-    private String teamName;
-    private boolean isPositive;
+    private final String token;
+    private final int teamId;
+    private final int points;
+    private final String teamName;
+    private final boolean isPositive;
 
-    private WeakReference<TextView> textView;
+    private final WeakReference<TextView> textView;
 
     public ScoreTask(final String token,
               final TextView textView,

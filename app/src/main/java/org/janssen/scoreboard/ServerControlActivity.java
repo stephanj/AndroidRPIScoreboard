@@ -13,7 +13,6 @@ import java.lang.ref.WeakReference;
 
 /**
  * The Wifi controller.
- *
  * Created by stephan on 25/01/14.
  */
 public class ServerControlActivity extends FragmentActivity {

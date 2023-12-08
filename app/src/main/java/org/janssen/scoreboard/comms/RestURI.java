@@ -2,7 +2,6 @@ package org.janssen.scoreboard.comms;
 
 /**
  * The valid REST URI's which communicate with the server side score board.
- *
  * Created by stephan on 16/06/13.
  */
 public enum RestURI {
@@ -43,7 +42,7 @@ public enum RestURI {
     // Clock countdown
     COUNTDOWN("http://%s/api/clock/countdown/%d?mirrored=%s&token=%s");
 
-    String value;
+    final String value;
 
     RestURI(String value) {
         this.value = value;

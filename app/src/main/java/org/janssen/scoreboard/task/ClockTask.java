@@ -15,10 +15,10 @@ import static org.janssen.scoreboard.ScoreActivity.NETWORK_PROBLEEM_PROBEER_OPNI
 public class ClockTask extends AsyncTask<Void, Void, String> {
 
     static final String ERROR_PROBEER_OPNIEUW = "Error probeer opnieuw - ";
-    private String token;
-    private int gameId;
-    private int seconds;
-    private ClockAction action;
+    private final String token;
+    private final int gameId;
+    private final int seconds;
+    private final ClockAction action;
 
     public ClockTask(final String token,
                      final int gameId,

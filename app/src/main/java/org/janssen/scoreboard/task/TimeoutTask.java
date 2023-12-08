@@ -15,8 +15,8 @@ public class TimeoutTask extends AsyncTask<Void, Void, String> {
      */
     private static final String TAG = "TimeoutTask";
 
-    private int teamId;
-    private String authToken;
+    private final int teamId;
+    private final String authToken;
 
     public TimeoutTask(final int teamId,
                        final String authToken) {
